@@ -15,7 +15,7 @@ SES -> S3 &amp; SNS -> Lambda(this) -> Slack
 ## AWS Setting
 
 ### SNS
-* make topic to use.
+* make topic to use.(region must be same as SES's)
 
 ### S3(for mail receiving)
 * create bucket for saving received mail data.
