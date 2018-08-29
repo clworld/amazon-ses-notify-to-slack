@@ -1,8 +1,11 @@
 console.log('Loading');
 
 const region = process.env.REGION || 'ap-northeast-1';
-const token = process.env.TOKEN || abort('slack token needed.');
+const token = process.env.TOKEN;
 const channel = process.env.CHANNEL || '#random';
+if (!token) {
+  throw new Error('slack token needed.');
+}
 
 const request = require('request');
 const moment = require('moment');
@@ -91,11 +94,11 @@ exports.handler = function(event, context) {
     var messageJson = false;
     try {
       if (!record.Sns.Message) {
-        throw "Sns.Message IS NULL";
+        throw new Error('Sns.Message IS NULL');
       }
       messageJson = JSON.parse(record.Sns.Message);
       if (!messageJson.notificationType) {
-        throw "messageJson.notificationType IS NULL";
+        throw new Error('messageJson.notificationType IS NULL');
       }
     } catch(err) {
       request.post(postInfoUpload('SNS raw message', JSON.stringify(record.Sns, null, 2)), postCallback);
@@ -117,7 +120,7 @@ exports.handler = function(event, context) {
           break;
 
         default:
-          throw "Unknown type.";
+          throw new Error('Unknown type.');
       };
     } catch(err) {
       request.post(postInfoUpload('SNS message', JSON.stringify(messageJson, null, 2)), postCallback);
