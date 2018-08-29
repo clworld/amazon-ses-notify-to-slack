@@ -17,9 +17,10 @@ SES -> S3 &amp; SNS -> Lambda(this) -> Slack
 ### SNS
 * make topic to use.
 
-### S3
+### S3(for mail receiving)
 * create bucket for saving received mail data.
 * set bucket policy to make SES can put file.
+** See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html
 
 ### SES
 * bounce, complaint -> SNS topic (include headers)
