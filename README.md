@@ -23,5 +23,5 @@ SES -> S3 &amp; SNS -> Lambda(this) -> Slack
   * See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html
 
 ### SES
-* bounce, complaint -> SNS topic (include headers)
-* receive rule -> save to S3 bucket and send SNS topic.
+* bounces, complaints -> SNS topic (Include original headers)
+* Email Receiving>Rule Sets -> save to S3 bucket and send SNS topic.
