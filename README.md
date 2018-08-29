@@ -8,7 +8,7 @@ SES -> S3 &amp; SNS -> Lambda(this) -> Slack
 * Set environments:
   * TZ: timezone ("Asia/Tokyo")
   * REGION: S3 region. ("ap-northeast-1")
-  * TOKEN: Slack bot token.
+  * TOKEN: Slack bot token. ("xoxb-〜")
   * CHANNEL: channel to post notification. ("#channel")
 * Set Lambda triggered by SNS notification.
 
