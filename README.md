@@ -10,7 +10,7 @@ SES -> S3 &amp; SNS -> Lambda(this) -> Slack
   * REGION: S3 region. ("ap-northeast-1")
   * TOKEN: Slack bot token. ("xoxb-〜")
   * CHANNEL: channel to post notification. ("#channel")
-* Set Lambda triggered by SNS notification.
+* Set Lambda triggered by SNS notification(You may need to specify SNS topic ARN directly to set SNS topic which is in different region.)
 
 ## AWS Setting
 
